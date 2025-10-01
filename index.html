@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Evasão Escolar</title>
+  
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-body text-body">
+  <nav class="navbar navbar-expand-lg bg-primary navbar-dark px-3">
+    <a class="navbar-brand" href="#">📊 Dashboard de Evasão Escolar</a>
+    <div class="ms-auto">
+      <button id="toggle-theme" class="btn btn-outline-light btn-sm">🌙 Modo escuro</button>
+    </div>
+  </nav>
+
+  <main class="container my-4">
+    <h5 class="text-muted">Brasil > Nordeste > Maranhão > Paço do Lumiar</h5>
+
+    <!-- KPIs -->
+    <div class="row g-3 my-3">
+      <div class="col-md-4">
+        <div class="card shadow-sm p-3">
+          <h6 class="text-muted">Taxa de Evasão (%)</h6>
+          <h3 id="kpi-taxa">7.4%</h3>
+          <small class="text-muted">Comparado ao ano anterior: -0.8 p.p.</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm p-3">
+          <h6 class="text-muted">Alunos Evadidos</h6>
+          <h3 id="kpi-alunos">1245</h3>
+          <small class="text-muted">Ano selecionado: 2024</small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm p-3">
+          <h6 class="text-muted">Foco geográfico</h6>
+          <h4>Paço do Lumiar, Maranhão</h4>
+          <small class="text-muted">Região: Nordeste</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gráficos -->
+    <div class="row g-3">
+      <div class="col-lg-6">
+        <div class="card shadow-sm p-3">
+          <h6>Evolução da taxa de evasão</h6>
+          <canvas id="lineChart"></canvas>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card shadow-sm p-3">
+          <h6>Evasão por série</h6>
+          <canvas id="barChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 mt-2">
+      <div class="col-md-4">
+        <div class="card shadow-sm p-3">
+          <h6>Causas da evasão</h6>
+          <canvas id="pieChartCausas"></canvas>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm p-3">
+          <h6>Perfil dos alunos evadidos</h6>
+          <canvas id="pieChartPerfil"></canvas>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm p-3">
+          <h6>Mapa: Paço do Lumiar</h6>
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center mt-4 mb-2 text-muted">
+    <small>Obs: Este protótipo usa dados fictícios. Conecte CSV/JSON reais para análises.</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
